@@ -19,7 +19,7 @@ namespace assignment6
         public override string ToString()
         {
             return String.Format("Navigation manager: {0}", nvMgr);
-
+            
         }
 
         public override string AppSystemPurpose()
@@ -31,7 +31,7 @@ namespace assignment6
         {
             base.price += (int)(base.price * VAT);
         }
-
+       
 
     }
 }

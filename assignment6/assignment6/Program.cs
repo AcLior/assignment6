@@ -8,9 +8,10 @@ namespace assignment6
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
-            //const double nav = 0.12;
+            const double nav = 0.12;
         }
     }
 }

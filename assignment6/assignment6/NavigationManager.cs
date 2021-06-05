@@ -11,7 +11,7 @@ namespace assignment6
     {
         string currentLocation;
         string[] destinations;
-        int numOfDest;
+        public int numOfDest;
 
         public NavigationManager(string currentLocation,TypeOfCar car)
         {
@@ -42,13 +42,13 @@ namespace assignment6
             return String.Format("Type of car: {0} Current Location: {1} Amount of destinations: {2}", CarType, CurrentLocation, NumOfDestinations);
         }
 
-        public void ShowRecentLocations()
+        public void ShowRecentLocations() //מיקומים בפועל?
         {
             foreach (string dest in Destinations)
             {
                 if (dest != null)
                 {
-                    Console.WriteLine(dest+",");
+                    Console.WriteLine(dest+", ");
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace assignment6
         public void AddAddress(string destAddress)
         {
             string[] temp;
-            if (CheckDestination(destAddress) == false)
+            if (!CheckDestination(destAddress))
             {
                 temp = Destinations;
                 Destinations = new string[++NumOfDestinations];
@@ -81,5 +81,6 @@ namespace assignment6
             }
             return false;
         }
+        
     }
 }

@@ -45,10 +45,12 @@
   <ItemGroup>
     <Compile Include="AppSystem.cs" />
     <Compile Include="IApp.cs" />
+    <Compile Include="MobileDevice.cs" />
     <Compile Include="Navigation.cs" />
     <Compile Include="NavigationManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Social.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
