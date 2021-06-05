@@ -6,13 +6,32 @@ using System.Threading.Tasks;
 
 namespace assignment6
 {
-    class Navigation
+    class Navigation:AppSystem,IApp
     {
-        int counter = 0;
-        static int id;
-        string name;
-        int price;
-        DateTime date;
+       
         NavigationManager nvMgr;
+
+        public Navigation(string appName,int price,NavigationManager nvmgr):base( appName, price)
+        {
+            this.nvMgr = nvmgr;
+        }
+
+        public override string ToString()
+        {
+            return String.Format("Navigation manager: {0}", nvMgr);
+
+        }
+
+        public override string AppSystemPurpose()
+        {
+            return "Catch The Road-Choose The Best Way";
+        }
+
+        public void AddVAT(double VAT)
+        {
+            base.price += (int)(base.price * VAT);
+        }
+
+
     }
 }

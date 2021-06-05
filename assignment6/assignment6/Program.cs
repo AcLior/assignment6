@@ -10,6 +10,7 @@ namespace assignment6
     {
         static void Main(string[] args)
         {
+            //const double nav = 0.12;
         }
     }
 }

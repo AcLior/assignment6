@@ -1,0 +1,2 @@
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment6\assignment6\obj\Debug\assignment6.csprojAssemblyReference.cache
+D:\סמסטר א\סמסטר ב\C#\מטלות\assignment6\assignment6\obj\Debug\assignment6.csproj.CoreCompileInputs.cache

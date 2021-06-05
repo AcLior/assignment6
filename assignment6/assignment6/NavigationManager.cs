@@ -29,11 +29,8 @@ namespace assignment6
             set { currentLocation = value; }
         }
 
-        string[] Destinations
-        {
-            get { return destinations; }
-            set { destinations = value; }
-        }
+        string[] Destinations { get; set; }
+      
 
         int NumOfDestinations
         {
@@ -43,6 +40,46 @@ namespace assignment6
         public override string ToString()
         {
             return String.Format("Type of car: {0} Current Location: {1} Amount of destinations: {2}", CarType, CurrentLocation, NumOfDestinations);
+        }
+
+        public void ShowRecentLocations()
+        {
+            foreach (string dest in Destinations)
+            {
+                if (dest != null)
+                {
+                    Console.WriteLine(dest+",");
+                }
+            }
+        }
+
+        public void AddAddress(string destAddress)
+        {
+            string[] temp;
+            if (CheckDestination(destAddress) == false)
+            {
+                temp = Destinations;
+                Destinations = new string[++NumOfDestinations];
+                temp.CopyTo(Destinations, 0);
+                Destinations[NumOfDestinations - 1] = destAddress;
+            }
+            else
+            {
+                Console.WriteLine("The address already exist");
+            }
+        }
+        
+        public bool CheckDestination(string address)
+        {
+            for(int i = 0; i < NumOfDestinations; i++)
+            {
+                if (address == destinations[i])
+                {
+                    return true;
+                }
+                
+            }
+            return false;
         }
     }
 }

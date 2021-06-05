@@ -10,8 +10,8 @@ namespace assignment6
     {
         int counter = 0;
         static int id;
-        string appName;
-        int price;
+        protected string appName;
+        protected int price;
         DateTime date;
 
         public AppSystem(string appName,int price)
