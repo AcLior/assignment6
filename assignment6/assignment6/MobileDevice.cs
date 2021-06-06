@@ -68,7 +68,8 @@ namespace assignment6
             {
                 if (apps[i] is Navigation)
                 {
-                    Console.WriteLine(apps[i].PrintNav());
+                    
+                    Console.WriteLine("ID: "+((Navigation)apps[i]).Id +"Name: "+ ((Navigation)apps[i]).AppName);
                 }
             }
         }

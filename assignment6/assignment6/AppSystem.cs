@@ -6,33 +6,31 @@ using System.Threading.Tasks;
 
 namespace assignment6
 {
-    abstract class AppSystem:IComparable
+    abstract class AppSystem : IComparable
     {
-        int counter = 0;
-        static int id;
+        int id;
         protected string appName;
         protected int price;
         DateTime date;
 
-        public AppSystem(string appName,int price)
+        public AppSystem(string appName, int price)
         {
             AppName = appName;
             Price = price;
             Date = DateTime.Now;
-            Id = ++counter;
+            this.id = GetHashCode();
         }
-        int Id
+        public int Id
         {
             get { return id; }
-            set { id = value; }
         }
 
-        string AppName
+        public string AppName
         {
             get { return appName; }
-            set 
+            set
             {
-                if (appName != null)
+                if (value != null)
                 {
                     appName = value;
 
@@ -46,10 +44,10 @@ namespace assignment6
             }
         }
 
-        int Price
+        public int Price
         {
             get { return price; }
-            set 
+            set
             {
                 if (price > 0)
                 {
@@ -64,15 +62,19 @@ namespace assignment6
             }
         }
 
-        DateTime Date
+        public DateTime Date
         {
             get { return date; }
             set { date = value; }
         }
 
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
         public override string ToString()
         {
-            return String.Format("Id: {0}\nName: {1}\nPrice: {2}\nDate: {3}", Id, AppName, Price, Date);
+            return String.Format("Id: {0} Name: {1} Price: {2} Date: {3}", Id, AppName, Price, Date);
         }
 
         abstract public string AppSystemPurpose();
@@ -84,17 +86,10 @@ namespace assignment6
             AppSystem appsys = (AppSystem)obj;
             if (AppName == appsys.AppName)
                 return 0;
-         
+
             return 1;
 
         }
-
-        public string PrintNav()
-        {
-            return string.Format("Id: {0}\nName: {1}", Id, AppName);
-        }
-        
-        
 
     }
 }

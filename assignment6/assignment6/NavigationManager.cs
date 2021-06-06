@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace assignment6
 {
-    enum TypeOfCar{Private=1,Motorcycle,Taxi};
+    enum TypeOfCar { Private = 1, Motorcycle, Taxi };
     class NavigationManager
     {
         string currentLocation;
         string[] destinations;
-        public int numOfDest;
+        int numOfDest;
 
-        public NavigationManager(string currentLocation,TypeOfCar car)
+        public NavigationManager(string currentLocation, TypeOfCar car)
         {
             CurrentLocation = currentLocation;
             CarType = car;
@@ -22,17 +22,17 @@ namespace assignment6
         }
 
         TypeOfCar CarType { get; set; }
-       
-        string CurrentLocation
+
+        public string CurrentLocation
         {
             get { return currentLocation; }
             set { currentLocation = value; }
         }
 
-        string[] Destinations { get; set; }
-      
+        public string[] Destinations { get { return destinations; } set {; } }
 
-        int NumOfDestinations
+
+        public int NumOfDestinations
         {
             get { return numOfDest; }
             set { numOfDest = value; }
@@ -42,21 +42,21 @@ namespace assignment6
             return String.Format("Type of car: {0} Current Location: {1} Amount of destinations: {2}", CarType, CurrentLocation, NumOfDestinations);
         }
 
-        public void ShowRecentLocations() //מיקומים בפועל?
+        public void ShowRecentLocations()
         {
             foreach (string dest in Destinations)
             {
-                if (dest != null)
-                {
-                    Console.WriteLine(dest+", ");
-                }
+
+
+                Console.WriteLine(dest + ",");
+
             }
         }
 
         public void AddAddress(string destAddress)
         {
             string[] temp;
-            if (!CheckDestination(destAddress))
+            if (isDestinationExist(destAddress) == false)
             {
                 temp = Destinations;
                 Destinations = new string[++NumOfDestinations];
@@ -68,19 +68,18 @@ namespace assignment6
                 Console.WriteLine("The address already exist");
             }
         }
-        
-        public bool CheckDestination(string address)
+
+        public bool isDestinationExist(string address)
         {
-            for(int i = 0; i < NumOfDestinations; i++)
+            for (int i = 0; i < NumOfDestinations; i++)
             {
                 if (address == destinations[i])
                 {
                     return true;
                 }
-                
+
             }
             return false;
         }
-        
     }
 }
