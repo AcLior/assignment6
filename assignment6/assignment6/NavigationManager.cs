@@ -29,7 +29,7 @@ namespace assignment6
             set { currentLocation = value; }
         }
 
-        public string[] Destinations { get { return destinations; } set {; } }
+        public string[] Destinations { get { return destinations; } set {destinations=value; } }
 
 
         public int NumOfDestinations
@@ -44,6 +44,7 @@ namespace assignment6
 
         public void ShowRecentLocations()
         {
+            Console.WriteLine("\nDestinations list:\n");
             foreach (string dest in Destinations)
             {
 

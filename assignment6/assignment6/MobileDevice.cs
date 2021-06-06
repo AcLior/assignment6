@@ -54,7 +54,7 @@ namespace assignment6
             AppSystem[] temp;
             for (int i = 0; i < numofapps; i++)
             {
-                if (apps[i].CompareTo(app)!=0)
+                if (apps[i].CompareTo(app)==0)
                 {
                     throw new ArgumentException("App already exists");
                 }
@@ -71,23 +71,23 @@ namespace assignment6
             {
                 if (apps[i] is Navigation)
                 {
-                    Console.WriteLine("ID: "+((Navigation)apps[i]).Id +"Name: "+ ((Navigation)apps[i]).AppName);
+                    Console.WriteLine("ID: "+((Navigation)apps[i]).Id +"Name: \n"+ ((Navigation)apps[i]).AppName);
                 }
             }
         }
         public override string ToString()
         {
-            string applications="Apps: ";
+            string applications="\n\nApps: \n";
             for (int i = 0; i < numofapps; i++)
             {
                 applications +=  apps[i].ToString();
             }
-            return String.Format("Username: {0}\nPassword: {1}\nOnline: {3}\nNumber of logins: {4}\nNumber of apps: {5}",username,password,online,numoflogins,numofapps) + applications;
+            return String.Format("Username: {0}\nPassword: {1}\nOnline: {2}\nNumber of logins: {3}\nNumber of apps: {4}\n",username,password,online,numoflogins,numofapps + applications);
         }
 
          public AppSystem PopularNavigationApp()
         {
-            int temp=0,index=0;
+            int temp=-1,index=0;
             
             for(int i = 0; i < numofapps; i++)
             {

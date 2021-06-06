@@ -49,7 +49,7 @@ namespace assignment6
             get { return price; }
             set
             {
-                if (price > 0)
+                if (value > 0)
                 {
                     price = value;
 
@@ -74,7 +74,7 @@ namespace assignment6
         }
         public override string ToString()
         {
-            return String.Format("Id: {0} Name: {1} Price: {2} Date: {3}", Id, AppName, Price, Date);
+            return String.Format("Id: {0} Name: {1} Price: {2} Date: {3}\n", Id, AppName, Price, Date.ToShortDateString());
         }
 
         abstract public string AppSystemPurpose();

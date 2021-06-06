@@ -15,18 +15,19 @@ namespace assignment6
             char choice='\0';
             string menu = "1. Download new app \n2.Watch popular navigation app\n3.Navigate with app\n4.Show mobile data\n5.Sort apps\n6.Close moblie\n";
             MobileDevice mobile=new MobileDevice("lior","1234");
-            Console.WriteLine("Enter username: ");
-            string username = Console.ReadLine();
-            Console.WriteLine("Enter password: ");
-            string password = Console.ReadLine();
+           
             try
             {
-                isLogin = mobile.Login(username,password);
+                    do {
 
-                if (isLogin)
-                {
-                    do { 
-                   
+                        Console.WriteLine("Enter username: ");
+                        string username = Console.ReadLine();
+                        Console.WriteLine("Enter password: ");
+                        string password = Console.ReadLine();
+                        isLogin = mobile.Login(username, password);
+
+                        if (isLogin)
+                        {
 
                         Console.WriteLine("Choose what to do:\n" + menu);
                         choice = Char.Parse(Console.ReadLine());
@@ -48,7 +49,7 @@ namespace assignment6
                                     bool isOrg=bool.Parse(Console.ReadLine());
                                     
                                     Social sApp = new Social(name,price,rating,isOrg);
-                                    sApp.AddVAT(price);
+                                    sApp.AddVAT(nav);
 
                                     mobile.AddApp(sApp);
                                 }
@@ -60,7 +61,7 @@ namespace assignment6
                                     TypeOfCar car = (TypeOfCar)Enum.Parse(typeof(TypeOfCar), Console.ReadLine());
                                     NavigationManager navManage = new NavigationManager(currentLocation,car);
                                     Navigation nApp = new Navigation(name,price, navManage);
-                                    nApp.AddVAT(price);
+                                    nApp.AddVAT(nav);
 
                                     mobile.AddApp(nApp);
                                 }
@@ -68,7 +69,7 @@ namespace assignment6
                             case '2':
                                 try
                                 {
-                                    mobile.PopularNavigationApp();
+                                    Console.WriteLine(mobile.PopularNavigationApp().ToString()); 
 
                                 }
                                 catch
@@ -87,7 +88,8 @@ namespace assignment6
                                 {
                                     if (mobile.Apps[i].AppName == temp)
                                     {
-                                        Console.WriteLine(mobile.ToString());
+                                        Console.WriteLine(((Navigation)(mobile.Apps[i])).NvMgr.CurrentLocation); 
+                                        ((Navigation)(mobile.Apps[i])).NvMgr.ShowRecentLocations();
                                         mobile.ShowListAppNavigation();
                                         Console.WriteLine("Enter address to navigate");
                                         ((Navigation)(mobile.Apps[i])).NvMgr.AddAddress(Console.ReadLine());
@@ -99,7 +101,7 @@ namespace assignment6
                                 
                                 break;
                             case '4':
-                                mobile.ToString();
+                                Console.WriteLine(mobile.ToString()); 
                                 break;
                             case '5':
                                 Array.Sort(mobile.Apps);
@@ -108,9 +110,9 @@ namespace assignment6
                                 Console.WriteLine("Bye Bye..");
                                 break;
                         }
-                    
+                    }
                 } while (choice != '6');
-                }
+                
             }
 
             catch (ArgumentNullException e)
