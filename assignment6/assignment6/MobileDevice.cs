@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace assignment6
@@ -68,7 +69,6 @@ namespace assignment6
             {
                 if (apps[i] is Navigation)
                 {
-                    
                     Console.WriteLine("ID: "+((Navigation)apps[i]).Id +"Name: "+ ((Navigation)apps[i]).AppName);
                 }
             }
@@ -82,6 +82,45 @@ namespace assignment6
             }
             return String.Format("Username: {0}\nPassword: {1}\nOnline: {3}\nNumber of logins: {4}\nNumber of apps: {5}",username,password,online,numoflogins,numofapps) + applications;
         }
-        
+
+         public AppSystem PopularNavigationApp()
+        {
+            int temp=0,index=0;
+            
+            for(int i = 0; i < numofapps; i++)
+            {
+                if(apps[i] is Navigation)
+                {
+                    if (((Navigation)(apps[i])).NvMgr.NumOfDestinations > temp)
+                    {
+                        temp = ((Navigation)(apps[i])).NvMgr.NumOfDestinations;
+                        index = i;
+                    }
+                }
+            }
+            if (temp == 0)
+            {
+                Console.WriteLine("There is no navigation apps");
+                return null;
+            }
+            return apps[index];
+        }
+
+        public bool Login(string username,string password)
+        {
+            Numoflogins++;
+            if (Numoflogins > 3 && Numoflogins < 9)
+            {
+                Thread.Sleep(15000);
+                return false;
+            }
+            else if (Numoflogins>9)
+            {
+                Online = false;
+                throw new Exception("The mobile is blocked..");
+            }
+            return username == Username && password == Password&&Online;
+        }
+
     }
 }

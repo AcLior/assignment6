@@ -16,6 +16,7 @@ namespace assignment6
             this.nvMgr = nvmgr;
         }
 
+        public NavigationManager NvMgr { get { return nvMgr; } }
         public override string ToString()
         {
             return String.Format("Navigation manager: {0}", nvMgr);
