@@ -39,7 +39,7 @@ namespace assignment6
         }
         public override string ToString()
         {
-            return String.Format("Type of car: {0} Current Location: {1} Amount of destinations: {2}", CarType, CurrentLocation, NumOfDestinations);
+            return String.Format("Type of car: {0} Current Location: {1} Amount of destinations: {2} ", CarType, CurrentLocation, NumOfDestinations);
         }
 
         public void ShowRecentLocations()

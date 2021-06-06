@@ -2,3 +2,10 @@ D:\סמסטר א\סמסטר ב\C#\מטלות\assignment6\assignment6\obj\Debug\a
 D:\סמסטר א\סמסטר ב\C#\מטלות\assignment6\assignment6\obj\Debug\assignment6.csproj.CoreCompileInputs.cache
 C:\Users\danie\OneDrive\שולחן העבודה\assignment6-main\assignment6\assignment6\obj\Debug\assignment6.csprojAssemblyReference.cache
 C:\Users\danie\OneDrive\שולחן העבודה\assignment6-main\assignment6\assignment6\obj\Debug\assignment6.csproj.CoreCompileInputs.cache
+C:\Users\aclio\Source\Repos\assignment6\assignment6\assignment6\bin\Debug\assignment6.exe.config
+C:\Users\aclio\Source\Repos\assignment6\assignment6\assignment6\bin\Debug\assignment6.exe
+C:\Users\aclio\Source\Repos\assignment6\assignment6\assignment6\bin\Debug\assignment6.pdb
+C:\Users\aclio\Source\Repos\assignment6\assignment6\assignment6\obj\Debug\assignment6.csprojAssemblyReference.cache
+C:\Users\aclio\Source\Repos\assignment6\assignment6\assignment6\obj\Debug\assignment6.csproj.CoreCompileInputs.cache
+C:\Users\aclio\Source\Repos\assignment6\assignment6\assignment6\obj\Debug\assignment6.exe
+C:\Users\aclio\Source\Repos\assignment6\assignment6\assignment6\obj\Debug\assignment6.pdb

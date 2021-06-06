@@ -26,7 +26,7 @@ namespace assignment6
                 }
             }
         }
-        public bool IsOrg { get => IsOrg; set => IsOrg = value; }
+        public bool IsOrg { get => isOrg; set => isOrg = value; }
 
         public Social(string appName, int price, int rating, bool isOrg) : base(appName, price)
         {

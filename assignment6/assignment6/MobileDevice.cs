@@ -16,17 +16,26 @@ namespace assignment6
         AppSystem[] apps;
         int numofapps;
 
+        public MobileDevice(string name, string pass)
+        {
+            Username = name;
+            Password = pass;
+            online = false;
+            apps = new AppSystem[0];
+            numofapps = 0;
+        }
         public string Username
         {
             get => username;
             set
             {
-                bool result = username.All(char.IsLetter);
+               
+               bool result = value.All(char.IsLetter);
                 if (result)
                 {
                     username = value;
                 }
-                else
+                else if(value==null)
                 {
                     throw new ArgumentNullException("Username can only contain letters");
                 }
@@ -39,14 +48,7 @@ namespace assignment6
         public int Numofapps { get => numofapps; set => numofapps = value; }
         public AppSystem[] Apps { get => apps; set => apps = value; }
 
-        public MobileDevice(string username, string password)
-        {
-            Username = username;
-            Password = password;
-            online = false;
-            apps = new AppSystem[0];
-            numofapps = 0;
-        }
+       
         public void AddApp(AppSystem app) //?
         {
             AppSystem[] temp;
@@ -62,7 +64,7 @@ namespace assignment6
             temp.CopyTo(apps, 0);
             apps[numofapps - 1] = app;
         }
-        public void showListAppNavigation()
+        public void ShowListAppNavigation()
         {
             Console.WriteLine("Navigation apps: ");
             for (int i = 0; i < numofapps; i++)
@@ -100,7 +102,6 @@ namespace assignment6
             }
             if (temp == 0)
             {
-                Console.WriteLine("There is no navigation apps");
                 return null;
             }
             return apps[index];
@@ -119,7 +120,7 @@ namespace assignment6
                 Online = false;
                 throw new Exception("The mobile is blocked..");
             }
-            return username == Username && password == Password&&Online;
+            return username == Username && password == Password;
         }
 
     }
