@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace assignment6
 {
-    interface IApp
+    interface IApp //ממשק שאחראי להוסיף מע"מ למחיר מוצר\שירות
     {
         void AddVAT(double VAT);
     }

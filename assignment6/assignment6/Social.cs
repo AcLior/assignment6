@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace assignment6
 {  
-    class Social:AppSystem,IApp
+    class Social:AppSystem,IApp // יורשת מאפ-סיסטם ומהממשק שלנו
     {
-        int rating;
-        bool isOrg;
+        int rating; // דירוג
+        bool isOrg; // האם שייך לארגון
 
         public int Rating
         {
@@ -18,7 +18,7 @@ namespace assignment6
             {
                 if (value>5||value<1)
                 {
-                    throw new ArgumentNullException("Rating's range is 1-5");
+                    throw new ArgumentNullException("Rating's range is 1-5"); // ערך לא יכול להיות מספר אחר
                 }
                 else
                 {

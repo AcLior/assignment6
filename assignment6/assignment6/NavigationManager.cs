@@ -9,11 +9,11 @@ namespace assignment6
     enum TypeOfCar { Private = 1, Motorcycle, Taxi };
     class NavigationManager
     {
-        string currentLocation;
-        string[] destinations;
-        int numOfDest;
+        string currentLocation; // מיקום נוכחי
+        string[] destinations; // מערך כתובות יעד אליהם ניווט המשתמש
+        int numOfDest; // מספר כתובות יעד בפועל
 
-        public NavigationManager(string currentLocation, TypeOfCar car)
+        public NavigationManager(string currentLocation, TypeOfCar car) // בנאי עם אתחול מתאים
         {
             CurrentLocation = currentLocation;
             CarType = car;
@@ -37,12 +37,12 @@ namespace assignment6
             get { return numOfDest; }
             set { numOfDest = value; }
         }
-        public override string ToString()
+        public override string ToString() // דריסת מתודה בהתאם להצגה מתאימה במקרה הזה
         {
             return String.Format("Type of car: {0} Current Location: {1} Amount of destinations: {2} ", CarType, CurrentLocation, NumOfDestinations);
         }
 
-        public void ShowRecentLocations()
+        public void ShowRecentLocations() // מתודה אשר מראה את המיקומים האחרונים
         {
             Console.WriteLine("\nDestinations list:\n");
             foreach (string dest in Destinations)
@@ -54,7 +54,7 @@ namespace assignment6
             }
         }
 
-        public void AddAddress(string destAddress)
+        public void AddAddress(string destAddress) // מתודה המוסיפה כתובת
         {
             string[] temp;
             if (isDestinationExist(destAddress) == false)
@@ -63,6 +63,7 @@ namespace assignment6
                 Destinations = new string[++NumOfDestinations];
                 temp.CopyTo(Destinations, 0);
                 Destinations[NumOfDestinations - 1] = destAddress;
+                // אם המיקום לא קיים כבר, מוסיפים את הכתובת למערך ושומרים על הסדר
             }
             else
             {
@@ -70,7 +71,7 @@ namespace assignment6
             }
         }
 
-        public bool isDestinationExist(string address)
+        public bool isDestinationExist(string address) // מתודת עזר שבודקת האם היעד כבר קיים
         {
             for (int i = 0; i < NumOfDestinations; i++)
             {

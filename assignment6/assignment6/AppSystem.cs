@@ -6,26 +6,26 @@ using System.Threading.Tasks;
 
 namespace assignment6
 {
-    abstract class AppSystem : IComparable
+    abstract class AppSystem : IComparable // מחלקה אבסטרקטית, מימוש מחדש של ממשק IComparable
     {
-        int id;
-        protected string appName;
-        protected int price;
-        DateTime date;
+        int id; // מספר ייחודי
+        protected string appName; // שם אפליקציה    
+        protected int price; // מחיר
+        DateTime date; // תאריך הורדה למכשיר
 
-        public AppSystem(string appName, int price)
+        public AppSystem(string appName, int price) // בנאי שמקבל שם ומחיר
         {
             AppName = appName;
             Price = price;
-            Date = DateTime.Now;
-            this.id = GetHashCode();
+            Date = DateTime.Now; // תאריך הורדה הוא התאריך שמתקבל באותו רגע
+            this.id = GetHashCode(); // מספר ייחודי הוא ההאש קוד שנוצר
         }
-        public int Id
+        public int Id // תכונה ID
         {
             get { return id; }
         }
 
-        public string AppName
+        public string AppName // תכונה לשם אפליקציה
         {
             get { return appName; }
             set
@@ -44,7 +44,7 @@ namespace assignment6
             }
         }
 
-        public int Price
+        public int Price // תכונת מחיר
         {
             get { return price; }
             set
@@ -56,13 +56,13 @@ namespace assignment6
                 }
                 else
                 {
-                    throw new ArgumentException("The value can't be negative");
+                    throw new ArgumentException("The value can't be negative"); // מחיר לא יכול להיות שלילי
 
                 }
             }
         }
 
-        public DateTime Date
+        public DateTime Date // תכונת תאריך
         {
             get { return date; }
             set { date = value; }
@@ -72,24 +72,21 @@ namespace assignment6
         {
             return base.GetHashCode();
         }
-        public override string ToString()
+        public override string ToString() // דריסת מתודת טו-סטרינג, בהתאם למקרה שלנו - הדפסה
         {
             return String.Format("Id: {0} Name: {1} Price: {2} Date: {3}\n", Id, AppName, Price, Date.ToShortDateString());
         }
 
-        abstract public string AppSystemPurpose();
+        abstract public string AppSystemPurpose(); // מתודה אבסטרקטית המחזירה מחרוזת המייצגת את מטרת האפליקציה
 
-        public int CompareTo(Object obj)
+        public int CompareTo(Object obj) // מתודת שבודקת האם האובייקטים שווים ע"פ השם
         {
             if (!(obj is AppSystem))
                 throw new Exception("this is not a AppSystem type");
             AppSystem appsys = (AppSystem)obj;
             if (AppName == appsys.AppName)
                 return 0;
-
             return 1;
-
         }
-
     }
 }
